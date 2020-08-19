@@ -14,8 +14,6 @@ class Api {
 }
 export default {
   install(Vue) {
-    // Vue.prototype.$ajax = ajax;
-    // Vue.prototype.$axios = axios;
     Vue.prototype.$api = Api;
     Vue.prototype.$thrift = Api.importThrift;
   }

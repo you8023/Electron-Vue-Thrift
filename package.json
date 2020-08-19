@@ -18,7 +18,9 @@
     "pack": "npm run pack:main && npm run pack:renderer",
     "pack:main": "cross-env NODE_ENV=production webpack --progress --colors --config .electron-vue/webpack.main.config.js",
     "pack:renderer": "cross-env NODE_ENV=production webpack --progress --colors --config .electron-vue/webpack.renderer.config.js",
-    "postinstall": ""
+    "postinstall": "",
+    "build-python":"pyinstaller ./py/thrift_server.py --clean",
+    "pack-app": "./node_modules/.bin/electron-packager . --overwrite --ignore=py$"
   },
   "dependencies": {
     "vue": "^2.5.16",

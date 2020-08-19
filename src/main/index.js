@@ -54,16 +54,16 @@ const path=require('path')
 let pyProc = null
 let pyPort = null
 
-
 const createPyProc = () => {
   // let port = '4242'
   let script = path.join(__dirname, 'py', 'thrift_server.py')
   pyProc = require('child_process').spawn('python', [script])
+  // let script = path.join(__dirname, 'py', 'dist','thrift_server')
+  // pyProc = require('child_process').execFile(script)
   if (pyProc != null) {
     console.log('child process success')
   }
 }
-
 
 const exitPyProc = () => {
   pyProc.kill()
@@ -73,23 +73,3 @@ const exitPyProc = () => {
 
 app.on('ready', createPyProc)
 app.on('will-quit', exitPyProc)
-
-/**
- * Auto Updater
- *
- * Uncomment the following code below and install `electron-updater` to
- * support auto updating. Code Signing with a valid certificate is required.
- * https://simulatedgreg.gitbooks.io/electron-vue/content/en/using-electron-builder.html#auto-updating
- */
-
-/*
-import { autoUpdater } from 'electron-updater'
-
-autoUpdater.on('update-downloaded', () => {
-  autoUpdater.quitAndInstall()
-})
-
-app.on('ready', () => {
-  if (process.env.NODE_ENV === 'production') autoUpdater.checkForUpdates()
-})
- */
