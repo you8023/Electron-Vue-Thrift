@@ -72,6 +72,7 @@ thrift -out ./ --gen py test.thrift
 ## 代码编写
 ### 客户端代码
 回到`lib`目录下，引入thrift
+
 新建文件`common.js`，输入以下内容：
 ```
 import Vue from 'vue'
